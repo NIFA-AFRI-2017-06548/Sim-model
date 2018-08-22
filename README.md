@@ -1,5 +1,5 @@
 # Sim-model
-Files related to teh movement and egg-laying simulation model
+Files related to the movement and egg-laying simulation model
 
 These files are a record of the development monarch movement and egg-laying simulation model.  Subsequent development or projects may also be included, or may be in a different repo.
 
