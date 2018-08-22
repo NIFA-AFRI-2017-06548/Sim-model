@@ -1,0 +1,78 @@
+package monarchs;
+
+import repast.simphony.context.Context;
+import repast.simphony.engine.schedule.ScheduleParameters;
+import repast.simphony.engine.schedule.ScheduledMethod;
+import repast.simphony.random.RandomHelper;
+import repast.simphony.space.gis.Geography;
+import repast.simphony.util.ContextUtils;
+import com.vividsolutions.jts.geom.*;
+
+/**
+ * A geolocated agent with a point location.
+ * 
+ * @author Tyler Grant
+ *
+ */
+
+public class Monarch {
+	private String name;
+	//angle in radians that monarch is to move
+	private double angleinRadians;
+	//magnitude of change in direction
+	private double angleChange;
+	//directionality parameter constrains possible changes in direction
+	private double directionality = 0.5;
+	//current angle in radians that Monarch moves - initialize to random value
+	private double currAngle = 2*Math.PI*Math.random();
+	//temp variable needed when angle crosses 360/0 degrees
+	private double tempAngle1 = 0;
+	private double tempAngle2 = 0;
+	
+	public Monarch(String name) {
+		this.name = name;
+	}
+	
+	@ScheduledMethod(start = 1, interval = 1, priority = ScheduleParameters.FIRST_PRIORITY)
+	public void step(){
+		corrrandwalk();
+	}
+	
+	private void corrrandwalk(){
+		
+		Context context = ContextUtils.getContext(this);
+		Geography<Monarch> geography = (Geography)context.getProjection("Monarchs");
+		
+		angleChange = Math.PI*RandomHelper.nextDouble()*(1-directionality);
+		
+		if(Math.random() < 0.5){
+			tempAngle1 = currAngle + angleChange;
+			if(tempAngle1 > 2*Math.PI){
+				angleinRadians = tempAngle1 - 2*Math.PI;
+			}
+			else {
+				angleinRadians = tempAngle1;
+			}
+		} else {
+			tempAngle2 = currAngle - angleChange;
+			if(tempAngle2 < 0){
+				angleinRadians = 2*Math.PI + tempAngle2;
+			}
+			else{
+				angleinRadians = tempAngle2;
+			}
+		}
+		
+		geography.moveByVector(this, 50, angleinRadians);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
+	
+}
