@@ -9,6 +9,8 @@ These files were compiled from over 2 years of work, after the first manuscript 
 
 See the working notes first.  They are long but have a record of all or most important decisions.  
 
+A history of all (?) simulations is in "Sensitivity Analysis.xlsx"
+
 The timeline of R scripts goes about like this:
 1.	Monarchs.R
 2.	MonarchsGlobalSA.R
