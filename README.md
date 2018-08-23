@@ -1,7 +1,7 @@
 # Sim-model
 Files related to the movement and egg-laying simulation model
 
-These files are a record of the development monarch movement and egg-laying simulation model.  Subsequent development or projects may also be included, or may be in a different repo.
+These files are a record of the development of the monarch movement and egg-laying simulation model.  Subsequent development or projects may also be included, or may be in a different repo.
 
 Current model code is stored in my personal GitHub at https://github.com/tgrant7/monarch-ABM
 
@@ -14,7 +14,8 @@ The timeline of R scripts goes about like this:
 2.	MonarchsGlobalSA.R
 3.	YetiSims.R
 4.	GlobalSA-Yeti.R
+
 The working R scripts at the time of publication were the last two.  
 
-
+Tyler Grant
 
