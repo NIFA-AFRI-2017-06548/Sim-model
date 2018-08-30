@@ -19,7 +19,7 @@ The timeline of R scripts goes about like this:
 
 The working R scripts at the time of publication were the last two.  
 
-~ 8GB of R workspaces containing results of analyses are stored elsewhere, as are ~40 GB of simulation output files
+~ 8GB of R workspaces containing results of analyses are stored elsewhere, as are ~40 GB of simulation output files, but both of these can be replicated with the computer and R code in this repo.  
 
 Tyler Grant
 
